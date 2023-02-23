@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding with Caoimhe!</title>
+  <link rel="stylesheet" href="../../public/css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            {{!-- Home link --}}
+
+
+            {{!-- Dashboard link --}}
+
+
+            {{!-- Login/Logout link --}}
+            {{#if logged_in}}
+            <button class="btn" id="logout">logout</button>
+            {{/if}}
+
+        </nav>
+        <h1>Coding with Caoimhe!</h1>       
+    </header>
+    <main>
+        {{!-- on welcome/home page: --}}
+        {{!-- display current blog posts.--}}
+        {{!-- if a blog post is selected: 
+            THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
+            WHEN I enter a comment and click on the submit button while signed in
+            THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created --}}
+
+        {{!-- on dashboard (accessed only once logged in)--}}
+        {{!-- user can input new blog posts--}}
+        {{!--   THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
+                WHEN I click on the button to add a new blog post
+                THEN I am prompted to enter both a title and contents for my blog post
+                WHEN I click on the button to create a new blog post
+                THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
+                WHEN I click on one of my existing posts in the dashboard
+                THEN I am able to delete or update my post and taken back to an updated dashboard
+                --}}
+
+        {{!-- on logout link --}}
+        {{!--   WHEN I click on the logout option in the navigation
+                THEN I am signed out of the site
+                WHEN I am idle on the site for more than a set time
+                THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments --}}
+
+    </main>
+
+    {{#if logged_in}}
+    <script src="../../public/js/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>
