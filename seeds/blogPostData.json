@@ -1,0 +1,17 @@
+[
+    {
+        "title": "What is Coding with Caoimhe?",
+        "blog_text": "Coding with Caoimhe is a blog which provides a space to develpers of all skill level to pass on any nuggests of gold they have found while coding.",
+        "user_id": 1
+    },
+    {
+        "title": "Did you know? - VS Code Tips",
+        "blog_text": "Everytime I use VS Code, I come across a new feature that makes me fall in love with it all over again! This week I was shown the shortcode cmd/ctrl + shift + f. This allows you to search within all the files in the current VS Code window. So next time you discover you have spelt categories with a second a, you can hunt that pesky letter with just a couple of key strokes!)",
+        "user_id": 2
+    },
+    {
+        "title": "What is Insomnia?",
+        "blog_text": "No, I am not planning on explaining why you are so tired - the late night coffee and coding sessions are to blame for that. What I want to tell you about is an app created by Kong. According to their website, Insomnia is a collaborative open source API developement platform. But what does that mean?",
+        "user_id": 3
+    }
+]
