@@ -29,7 +29,12 @@ BlogPost.init(
               key: 'id',
             //   unique: false FIXME: confirm
             }
+        },
+        date:{
+            type: DataTypes.DATE,
+            allowNull: false,
         }
+
     }
 );
 
