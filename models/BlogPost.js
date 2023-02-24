@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const User = require('./BlogPost');
 
 // DESCRIPTION: Initialize BlogPost model (table) by extending off Sequelize's Model class
 class BlogPost extends Model {}
@@ -26,7 +27,7 @@ BlogPost.init(
             references:{ 
               model: User,
               key: 'id',
-              unique: false
+            //   unique: false FIXME: confirm
             }
         }
     }
