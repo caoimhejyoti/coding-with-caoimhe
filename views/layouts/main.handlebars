@@ -12,14 +12,16 @@
     <header>
         <nav>
             {{!-- Home link --}}
-
+            <a href="/">Home</a>
 
             {{!-- Dashboard link --}}
-
+            <a href="/api/dashboard">Dashboard</a>
 
             {{!-- Login/Logout link --}}
             {{#if logged_in}}
             <button class="btn" id="logout">logout</button>
+            {{#else}}
+            <a href="/login"> Login</a>
             {{/if}}
 
         </nav>
