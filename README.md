@@ -69,6 +69,7 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 
 
 ## Resources
+https://codewithhugo.com/sequelize-data-types-a-practical-guide/
 
 
 ## License
