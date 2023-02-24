@@ -1,28 +1,28 @@
 [
-    {
-      "name": "Buttercup",
-      "email": "buttercup@hotmail.com",
-      "password": "password12345"
-    },
-    {
-      "name": "Bubbles",
-      "email": "bubbles@gmail.com",
-      "password": "password12345"
-    },
-    {
-      "name": "Blossom",
-      "email": "blossom2k20@aol.com",
-      "password": "password12345"
-    },
-    {
-      "name": "Mojo",
-      "email": "mojo99@msn.com",
-      "password": "password12345"
-    },
-    {
-      "name": "Utonium",
-      "email": "professor_utonium@yahoo.com",
-      "password": "password12345"
-    }
-  ]
+  {
+    "name": "Buttercup",
+    "email": "buttercup@hotmail.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Bubbles",
+    "email": "bubbles@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Blossom",
+    "email": "blossom2k20@aol.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Mojo",
+    "email": "mojo99@msn.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Utonium",
+    "email": "professor_utonium@yahoo.com",
+    "password": "password12345"
+  }
+]
   
