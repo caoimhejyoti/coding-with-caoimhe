@@ -2,39 +2,45 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coding with Caoimhe!</title>
-  <link rel="stylesheet" href="../../public/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding with Caoimhe!</title>
+    <link rel="stylesheet" href="/css/jass.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <header>
+    <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+    
         <nav>
             {{!-- Home link --}}
             <a href="/">Home</a>
 
-            {{!-- Dashboard link --}}
-            <a href="/api/dashboard">Dashboard</a>
+            {{!-- Dashboard link
+            <a href="/api/dashboard">Dashboard</a> --}}
 
             {{!-- Login/Logout link --}}
+            <!-- Conditionally render login or logout links -->
             {{#if logged_in}}
-            <button class="btn" id="logout">logout</button>
-            {{#else}}
-            <a href="/login"> Login</a>
+            <a href="/dashboard">Dashboard</a> |
+            <button class="no-button" id="logout">logout</button>
+            {{else}}
+            <a href="/login">Login</a>
             {{/if}}
 
         </nav>
         <h1>Coding with Caoimhe!</h1>       
     </header>
     <main>
+        {{{ body }}}
         {{!-- on welcome/home page: --}}
         {{!-- display current blog posts.--}}
         {{!-- if a blog post is selected: 
             THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
             WHEN I enter a comment and click on the submit button while signed in
             THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created --}}
-
+        
         {{!-- on dashboard (accessed only once logged in)--}}
         {{!-- user can input new blog posts--}}
         {{!--   THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
@@ -53,6 +59,10 @@
                 THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments --}}
 
     </main>
+    <footer>
+      
+    </footer>
+  </div>
 
     {{#if logged_in}}
     <script src="../../public/js/logout.js"></script>
