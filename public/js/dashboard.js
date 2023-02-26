@@ -1,26 +1,32 @@
 const sequelize = require("../../config/connection");
 
+
 const newFormHandler = async (event) => {
+  console.log("HELLO");
   event.preventDefault();
 
   const name = document.querySelector('#blogPost-name').value.trim();
   const content = document.querySelector('#blogPost-content').value.trim();
 
+
   if (name && content) {
-    const response = await fetch(`/api/dashboard`, {
+    const response = await fetch(`/api/blogposts`, {
       method: 'POST',
       body: JSON.stringify({ name, content}),
       headers: {
         'Content-Type': 'application/json',
       },
+      
     });
 
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
       alert('Failed to create Blog post');
-    }
-  }
+    }; 
+  }else{
+    alert('Please ensure you have filled out both the Title and post content sections.');
+  };
 };
 
 const delButtonHandler = async (event) => {
@@ -39,13 +45,14 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.new-blogPost-form')
-  .addEventListener('submit', newFormHandler);
+// document
+//   .querySelector('.new-blogPost-form')
+//   .addEventListener('submit', newFormHandler);
 
 document
   .querySelector('.blogPost-list')
   .addEventListener('click', delButtonHandler);
 
+const submitButton = document.querySelect('#submit')
 
-  module.exports = currentBlogPosts;
+submitButton.addEventListener('click',newFormHandler);

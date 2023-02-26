@@ -15,16 +15,16 @@
       </div>
       <div class="form-group">
         <label for="blogPost-content">Content:</label>
-        <textarea class="form-input" id="blogPost-desc" name="blogPost-desc"></textarea>
+        <textarea class="form-input" id="blogPost-content" name="blogPost-content"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" id= "submit" class="btn btn-primary">Create</button>
       </div>
     </form>
   </div>
 
   <div class="col-md-6 blogPost-list">
-    <h3>Current Blog Posts:</h3>
+    <h3>Current Blog Posts: </h3>
 
   {{#if blogPosts.length}}
     {{#each blogPosts as |blog|}}
