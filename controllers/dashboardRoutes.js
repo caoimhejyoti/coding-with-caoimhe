@@ -6,6 +6,8 @@ router.get('/', async (req, res) => {
   try {
     // Get all BlogPosts and JOIN with user data
     const BlogPostData = await BlogPost.findAll({
+      where:
+      {user_id: req.session.user_id},
       include: [
         {
           model: User,

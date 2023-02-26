@@ -14,7 +14,7 @@
         <input class="form-input" type="text" id="blogPost-name" name="blogPost-name" />
       </div>
       <div class="form-group">
-        <label for="blogPost-desc">Content:</label>
+        <label for="blogPost-content">Content:</label>
         <textarea class="form-input" id="blogPost-desc" name="blogPost-desc"></textarea>
       </div>
       <div class="form-group">
@@ -23,11 +23,11 @@
     </form>
   </div>
 
-  {{#if blogPost.length}}
   <div class="col-md-6 blogPost-list">
-    <h3>Current blogPost:</h3>
+    <h3>Current Blog Posts:</h3>
 
-    {{#each blogPost as |blog|}}
+  {{#if blogPosts.length}}
+    {{#each blogPosts as |blog|}}
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/blogposts/{{blog.id}}">{{blog.title}}</a></h4>
@@ -36,9 +36,11 @@
         <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
       </div>
     </div>
+    {{else}}
+    <p>No posts currently created.</p>
     {{/each}}
-  </div>
   {{/if}}
+  </div>
 </div>
 
-<script src="../public/js/"></script>
+<script src="../public/js/dashboard.js"></script>
