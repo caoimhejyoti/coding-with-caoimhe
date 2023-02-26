@@ -9,8 +9,8 @@
 
  
 <div class="text-center">
-  <h2>{{BlogPost.title}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{BlogPost.blog_text}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <h2>{{title}}</h2>
+  {{!-- <p>{{{get_emoji}}}</p> --}}
+  <p>{{blog_text}}</p>
+  <p>Created by {{user.name}} on {{format_date date}}</p>
 </div>

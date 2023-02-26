@@ -1,5 +1,5 @@
 // log in request
-// if not logged in - redirect. 
+// if not logged in - redirect.
 
 const router = require('express').Router();
 const { BlogPost, User, Comments } = require('../models');
@@ -18,21 +18,23 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const BlogPosts = BlogPostData.map((BlogPost) => BlogPost.get({ plain: true }));
+    const BlogPosts = BlogPostData.map((BlogPost) =>
+      BlogPost.get({ plain: true })
+    );
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      BlogPosts, 
-      logged_in: req.session.logged_in 
+    res.render('homepage', {
+      BlogPosts,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/blogpost/:id', async (req, res) => {
+router.get('/blogposts/:id', withAuth, async (req, res) => {
   try {
-
+    console.log('Hello');
     const BlogPostData = await BlogPost.findByPk(req.params.id, {
       include: [
         {
@@ -41,12 +43,12 @@ router.get('/blogpost/:id', async (req, res) => {
         },
       ],
     });
-
-    const BlogPost = BlogPostData.get({ plain: true });
+    console.log(BlogPostData);
+    const BlogPostInfo = BlogPostData.get({ plain: true });
 
     res.render('BlogPost', {
-      ...BlogPost,
-      logged_in: req.session.logged_in
+      ...BlogPostInfo,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -66,7 +68,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
     res.render('dashboard', {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
