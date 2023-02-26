@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const User = require('./BlogPost');
+const User = require('./User');
 
 // DESCRIPTION: Initialize BlogPost model (table) by extending off Sequelize's Model class
 class BlogPost extends Model {}
@@ -33,9 +33,17 @@ BlogPost.init(
         date:{
             type: DataTypes.DATE,
             allowNull: false,
+            defaultValue: DataTypes.NOW
         }
 
-    }
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'blogPost',
+      }
 );
 
 module.exports = BlogPost;
