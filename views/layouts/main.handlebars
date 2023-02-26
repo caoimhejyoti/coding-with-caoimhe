@@ -17,10 +17,13 @@
             {{!-- Home link --}}
             <a href="/">Home</a> |
 
+
+            {{!-- Dashboard link --}}
+            <a href="/dashboard">Dashboard</a> |
+
             {{!-- Login/Logout link --}}
             <!-- Conditionally render login or logout links -->
             {{#if logged_in}}
-            <a href="/dashboard">Dashboard</a> |
             <button class="no-button" id="logout">Logout</button>
             {{else}}
             <a href="/login">Login</a>
