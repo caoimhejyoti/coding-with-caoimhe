@@ -8,36 +8,6 @@ const router = require('express').Router();
 const { BlogPost, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
-// router.get('/', async (req, res) => {
-//   try{
-//     const blogPost = await BlogPost.findAll({
-//       include: [{model: User}],
-//     });
-//     res.status(200).json(blogPost);
-//   }catch (err){
-//     res.status(500).json(err);
-//   }
-  
-// });
-
-// router.get('/:id', async (req, res) => {
-  
-//   try{
-//     const blogPost = await BlogPost.findByPk({
-//       where: {
-//         id: req.params.id
-//       },
-//       include: [{model: User}],
-//     });
-//     res.render(blogPost);
-//   }catch (err){
-//     res.status(500).json(err);
-//   }
-  
-// });
-
-
 router.post('/', withAuth, async (req, res) => {
   try {
     const newBlogPost = await BlogPost.create({

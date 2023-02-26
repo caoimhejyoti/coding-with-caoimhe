@@ -2,7 +2,7 @@
 // if not logged in - redirect. 
 
 const router = require('express').Router();
-const { BlogPost, User } = require('../models');
+const { BlogPost, User, Comments } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -30,8 +30,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/BlogPost/:id', async (req, res) => {
+router.get('/blogpost/:id', async (req, res) => {
   try {
+
     const BlogPostData = await BlogPost.findByPk(req.params.id, {
       include: [
         {
