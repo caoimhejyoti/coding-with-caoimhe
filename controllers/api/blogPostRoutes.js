@@ -6,21 +6,39 @@
 
 const router = require('express').Router();
 const { BlogPost, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.get('/', async (req, res) => {
-  try{
-    const blogPost = await BlogPost.findAll({
-      include: [{model: User}],
-    });
-    res.status(200).json(blogPost);
-  }catch (err){
-    res.status(500).json(err);
-  }
+
+// router.get('/', async (req, res) => {
+//   try{
+//     const blogPost = await BlogPost.findAll({
+//       include: [{model: User}],
+//     });
+//     res.status(200).json(blogPost);
+//   }catch (err){
+//     res.status(500).json(err);
+//   }
   
-});
+// });
+
+// router.get('/:id', async (req, res) => {
+  
+//   try{
+//     const blogPost = await BlogPost.findByPk({
+//       where: {
+//         id: req.params.id
+//       },
+//       include: [{model: User}],
+//     });
+//     res.render(blogPost);
+//   }catch (err){
+//     res.status(500).json(err);
+//   }
+  
+// });
 
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newBlogPost = await BlogPost.create({
       ...req.body,
@@ -33,12 +51,14 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
+  const chosenId = req.params.id;
+  const userId = req.session.user_id;
   try {
     const blogPostData = await BlogPost.destroy({
       where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
+        id: chosenId,
+        user_id: userId,
       },
     });
 
