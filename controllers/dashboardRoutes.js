@@ -29,22 +29,22 @@ router.get('/', async (req, res) => {
   }
 });
 
-// router.post('/', withAuth, async (req, res) => {
-//   try {
-//     console.log("happy");
-//     const newUserPost = await BlogPost.create({
-//       ...req.body,
-//       user_id: req.session.user_id,
-//       Date: new Date
-//     });
+router.post('/', withAuth, async (req, res) => {
+  try {
+    console.log("happy");
+    const newUserPost = await BlogPost.create({
+      ...req.body,
+      user_id: req.session.user_id,
+      Date: new Date
+    });
 
-//     console.log(newUserPost);
+    console.log(newUserPost);
 
-//     res.status(200).json(newUserPost);
-//   } catch (err) {
-//     console.log("SAD");
-//     res.status(400).json(err);
-//   }
-// });
+    res.status(200).json(newUserPost);
+  } catch (err) {
+    console.log("SAD");
+    res.status(400).json(err);
+  }
+});
 
 module.exports = router;

@@ -1,6 +1,6 @@
-const sequelize = require("../../config/connection");
+// const sequelize = require("../../config/connection");
 
-
+console.log("hello");
 const newFormHandler = async (event) => {
   console.log("HELLO");
   event.preventDefault();
@@ -49,10 +49,10 @@ const delButtonHandler = async (event) => {
 //   .querySelector('.new-blogPost-form')
 //   .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.blogPost-list')
-  .addEventListener('click', delButtonHandler);
+// document
+//   .querySelector('.blogPost-list')
+//   .addEventListener('click', delButtonHandler);
 
-const submitButton = document.querySelect('#submit')
+const submitButton = document.querySelector('#submit')
 
 submitButton.addEventListener('click',newFormHandler);
