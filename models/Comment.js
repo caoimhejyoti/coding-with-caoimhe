@@ -14,7 +14,7 @@ Comments.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        comment_text: {
+        comment: {
             type: DataTypes.TEXT,
             allowNull: false,
         },
@@ -23,7 +23,6 @@ Comments.init(
             references:{ 
               model: BlogPost,
               key: 'id',
-            //   unique: false FIXME: confirm
             }
         },
         date:{

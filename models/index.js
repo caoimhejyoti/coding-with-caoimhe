@@ -1,6 +1,6 @@
 const User = require('./User');
 const BlogPost = require('./BlogPost');
-const Comments = require('./Comments');
+const Comments = require('./Comment');
 
 // users can have multiple blog posts
 User.hasMany(BlogPost, {
