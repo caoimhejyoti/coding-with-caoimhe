@@ -1,8 +1,8 @@
 // const sequelize = require("../../config/connection");
 
-console.log("hello");
+console.log("hello - in dashboard.js");
 const newFormHandler = async (event) => {
-  console.log("HELLO");
+  console.log("HELLO - start of new form handler");
   event.preventDefault();
 
   const name = document.querySelector('#blogPost-name').value.trim();
@@ -10,14 +10,19 @@ const newFormHandler = async (event) => {
 
 
   if (name && content) {
-    const response = await fetch(`/api/blogposts`, {
+    console.log("name and content ok");
+    console.log(name);
+    console.log(content);
+    const response = await fetch(`/dashboard`, {
       method: 'POST',
       body: JSON.stringify({ name, content}),
       headers: {
         'Content-Type': 'application/json',
       },
       
-    });
+    },
+    console.log("within fetch request"),
+    );
 
     if (response.ok) {
       document.location.replace('/dashboard');
