@@ -1,6 +1,6 @@
-// const sequelize = require("../../config/connection");
+console.log("hello - in dashboard.js"); //used for debugging
 
-console.log("hello - in dashboard.js");
+//COMPLETE! DESCRIPTION: ASYNC FNC to creat a new blog post
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -27,8 +27,9 @@ const newFormHandler = async (event) => {
   };
 };
 
+//COMPLETE! DESCRIPTION: ASYNC FNC to delete a blog post using the specified id. 
 const delButtonHandler = async (event) => {
-  if (event.target.hasAttribute('data-id')) {
+  try {
     const id = event.target.getAttribute('data-id');
     console.log(id);
     const response = await fetch(`/dashboard/${id}`, {
@@ -37,14 +38,18 @@ const delButtonHandler = async (event) => {
 
     if (response.ok) {
       document.location.replace('/dashboard');
-    } else {
-      alert('Failed to delete Post');
     }
+  }catch (err){
+      alert('Failed to delete Post');
   }
 };
 
 const submitButton = document.querySelector('#submit')
-const deleteButton = document.querySelector('.delBtn')
+// const deleteButton = document.querySelector('.delBtn')
 
 submitButton.addEventListener('click',newFormHandler);
-deleteButton.addEventListener('click',delButtonHandler);
+// deleteButton.addEventListener('click',delButtonHandler);
+
+document
+  .querySelector('.blogPost-list')
+  .addEventListener('click',delButtonHandler);
