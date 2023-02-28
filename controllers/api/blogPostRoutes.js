@@ -5,43 +5,25 @@
 
 
 const router = require('express').Router();
-const { BlogPost } = require('../../models');
+const { BlogPost, Comments } = require('../../models');
 const withAuth = require('../../utils/auth');
 
+
+
+//DESCRIPTION: Creating a new blog comment
 router.post('/', withAuth, async (req, res) => {
   try {
-    const newUserPost = await BlogPost.create({
+    const newComment = await Comments.create({
       ...req.body,
       user_id: req.session.user_id,
       Date: new Date
     });
 
-    res.status(200).json(newUserPost);
+    res.status(200).json(newComment);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
-  const chosenId = req.params.id;
-  const userId = req.session.user_id;
-  try {
-    const blogPostData = await BlogPost.destroy({
-      where: {
-        id: chosenId,
-        user_id: userId,
-      },
-    });
-
-    if (!blogPostData) {
-      res.status(404).json({ message: 'No Blog Post found with this id!' });
-      return;
-    }
-
-    res.status(200).json(blogPostData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 module.exports = router;
