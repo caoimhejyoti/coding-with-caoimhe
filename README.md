@@ -77,6 +77,8 @@ https://sequelize.org/docs/v6/core-concepts/model-basics/
 
 https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
 
+https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
+
 
 
 ## License
