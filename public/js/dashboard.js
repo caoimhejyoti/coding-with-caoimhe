@@ -10,19 +10,13 @@ const newFormHandler = async (event) => {
 
 
   if (name && content) {
-    console.log("name and content ok");
-    console.log(name);
-    console.log(content);
     const response = await fetch(`/dashboard`, {
       method: 'POST',
       body: JSON.stringify({ name, content}),
       headers: {
         'Content-Type': 'application/json',
       },
-      
-    },
-    console.log("within fetch request"),
-    );
+    });
 
     if (response.ok) {
       document.location.replace('/dashboard');
@@ -59,5 +53,7 @@ const delButtonHandler = async (event) => {
 //   .addEventListener('click', delButtonHandler);
 
 const submitButton = document.querySelector('#submit')
+const deleteButton = document.querySelector('#delete')
 
 submitButton.addEventListener('click',newFormHandler);
+deleteButton.addEventListener('click',delButtonHandler);

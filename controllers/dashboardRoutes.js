@@ -31,22 +31,17 @@ router.get('/', async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   try {
-    console.log("happy - in blog post try");
-    console.log(req.body); //not consoling. no body?
     const newUserPost = await BlogPost.create({
-      where:{
         user_id: req.session.user_id,
         title: req.body.name,
         blog_text: req.body.content,
         date: new Date,
-      },
-    });
+      });
 
     console.log(newUserPost);
 
     res.status(200).json(newUserPost);
   } catch (err) {
-    console.log("SAD - in blog post err");
     res.status(400).json(err);
   }
 });
