@@ -46,4 +46,26 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const chosenId = req.params.id;
+    const deletedBlogPost = await BlogPost.destroy({
+      where: {
+        id: chosenId,
+      },
+    });
+
+    if (!deletedBlogPost) {
+      res.status(404).json({ message: 'No Blog Post with this id!' });
+      return;
+    }
+
+    deletedBlogPost;
+    res.status(200).json({ message: 'Blog Post successfully deleted.' });
+
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;

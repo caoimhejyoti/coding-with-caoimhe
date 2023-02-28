@@ -2,7 +2,6 @@
 
 console.log("hello - in dashboard.js");
 const newFormHandler = async (event) => {
-  console.log("HELLO - start of new form handler");
   event.preventDefault();
 
   const name = document.querySelector('#blogPost-name').value.trim();
@@ -24,15 +23,15 @@ const newFormHandler = async (event) => {
       alert('Failed to create Blog post');
     }; 
   }else{
-    alert('Please ensure you have filled out both the Title and post content sections.');
+    alert('Please ensure you have filled out both the Title and Content sections.');
   };
 };
 
 const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-
-    const response = await fetch(`/api/dashboard/${id}`, {
+    console.log(id);
+    const response = await fetch(`/dashboard/${id}`, {
       method: 'DELETE',
     });
 
@@ -44,16 +43,8 @@ const delButtonHandler = async (event) => {
   }
 };
 
-// document
-//   .querySelector('.new-blogPost-form')
-//   .addEventListener('submit', newFormHandler);
-
-// document
-//   .querySelector('.blogPost-list')
-//   .addEventListener('click', delButtonHandler);
-
 const submitButton = document.querySelector('#submit')
-const deleteButton = document.querySelector('#delete')
+const deleteButton = document.querySelector('.delBtn')
 
 submitButton.addEventListener('click',newFormHandler);
 deleteButton.addEventListener('click',delButtonHandler);
