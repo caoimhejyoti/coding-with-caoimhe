@@ -1,4 +1,4 @@
-# coding-with-caoimhe
+# Coding with Caoimhe
 CMS-style blog about coding for developers.
 
 
