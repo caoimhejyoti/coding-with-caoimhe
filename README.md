@@ -52,7 +52,7 @@ COMPLETE! THEN I am prompted to enter both a title and contents for my blog post
 WHEN I click on the button to create a new blog post
 COMPLETE! THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
 WHEN I click on one of my existing posts in the dashboard
-TODO: THEN I am able to delete or update my post and taken back to an updated dashboard FIXME: delete working well. Update tbc.
+COMPLETE! THEN I am able to delete or update my post and taken back to an updated dashboard
 WHEN I click on the logout option in the navigation
 COMPLETE! THEN I am signed out of the site
 WHEN I am idle on the site for more than a set time
