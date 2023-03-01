@@ -1,3 +1,5 @@
+// TODO: resolve bug with date/time 
+
 module.exports = {
   format_time: (date) => {
     return date.toLocaleTimeString();
@@ -5,10 +7,6 @@ module.exports = {
   // The custom helper 'format_date' takes in a timestamp
   format_date: (date) => {
     return date.toLocaleDateString();
-  },
-  format_amount: (amount) => {
-    // format large numbers with commas
-    return parseInt(amount).toLocaleString();
   },
   get_emoji: () => {
     const randomNum = Math.random();

@@ -1,3 +1,5 @@
+// TODO: Confirm cookies are working as expected. 
+
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
