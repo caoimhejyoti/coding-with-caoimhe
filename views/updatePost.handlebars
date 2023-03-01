@@ -2,11 +2,11 @@
 <section class="container my-5 ">
   <section id ="header-card" class="col-12 card post-card">
     <section class="header-stripe bg-gradient">
-      <h2>{{title}}</h2>
+      <h2>{{BlogPostInfo.title}}</h2>
     </section>
     <div class="blog-text">
       <p class="two-columns">
-        {{blog_text}}
+        {{BlogPostInfo.blog_text}}
       </p>
     </div>
   </section>
@@ -28,7 +28,7 @@
         <textarea class="form-input" id="update-blogPost-content" name="update-blogPost-content">{{blog_text}}</textarea>
       </div>
       <div class="form-group">
-        <button type="submit" id= "submit" class="btn btn-primary" data-id={{blog.id}}>Update</button>
+        <button type="submit" id= "submit" class="btn btn-primary" data-id={{BlogPostInfo.id}}>Update</button>
       </div>
     </form>
   </div>
