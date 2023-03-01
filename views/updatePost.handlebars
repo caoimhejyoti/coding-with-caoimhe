@@ -1,5 +1,19 @@
+{{!-- Blog Post --}}
+<section class="container my-5 ">
+  <section id ="header-card" class="col-12 card post-card">
+    <section class="header-stripe bg-gradient">
+      <h2>{{title}}</h2>
+    </section>
+    <div class="blog-text">
+      <p class="two-columns">
+        {{blog_text}}
+      </p>
+    </div>
+  </section>
+</section>
+
 {{!-- Update Post --}}
-<div class="row mt-4">
+<div class="container my-5">
   <div id="create-card" class="col-9 card dashboard-card mx-auto">
     <div class="create-stripe">
       <h3>Update Blog Post:</h3>
@@ -7,14 +21,14 @@
     <form class="form new-blogPost-form">
       <div class="form-group">
         {{!-- <label for="blogPost-name">{{title}}</label> --}}
-        <input class="form-input" type="text" id="blogPost-name" name="blogPost-name" placeholder={{title}}>
+        <input class="form-input" type="text" id="update-blogPost-name" name="update-blogPost-name" placeholder={{title}}>
       </div>
       <div class="form-group">
         {{!-- <label for="blogPost-content">Content:</label> --}}
-        <textarea class="form-input" id="blogPost-content" name="blogPost-content">{{blog_text}}</textarea>
+        <textarea class="form-input" id="update-blogPost-content" name="update-blogPost-content">{{blog_text}}</textarea>
       </div>
       <div class="form-group">
-        <button type="submit" id= "submit" class="btn btn-primary">Create</button>
+        <button type="submit" id= "submit" class="btn btn-primary" data-id={{blog.id}}>Update</button>
       </div>
     </form>
   </div>
