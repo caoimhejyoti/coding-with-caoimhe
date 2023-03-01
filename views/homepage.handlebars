@@ -1,19 +1,24 @@
 <!-- Loop over each object in the blogs array -->
 {{#each BlogPosts as |blog| }}
-<div class="row mb-4 blog">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}} <!-- FIXME: look at alternative heading img -->
-      <a href="/blogposts/{{id}}">{{title}}</a>
-    </h2>
-    <p>Created by {{user.name}} on {{format_date blog.date}}</p>
+<section class="container my-5 ">
+  <div class="row">   
+    <section id ="header-card" class="col-12 card post-card">
+      <section class="header-stripe bg-gradient">
+        <h2>
+          {{{get_emoji}}}
+          <a href="/blogposts/{{id}}">{{title}}</a>
+        </h2>
+      </section>
+      <section class="tagline-stripe bg-gradient">
+        <p>Created by {{user.name}} on {{format_date blog.date}}</p>
+      </section>
+      <div class="blog-text">
+        <p class="two-columns">
+          {{blog_text}}
+        </p>
+      </div>
+    </section>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{blog_text}}
-    </p>
-  </div>
-</div>
+</section>
 {{/each}}
 

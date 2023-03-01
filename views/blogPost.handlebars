@@ -1,9 +1,42 @@
-<div id="blog-post" class="col-md-12 ">
-  <h2>{{title}}</h2>
-  {{!-- <p>{{{get_emoji}}}</p> --}}
-  <p>{{blog_text}}</p>
-  <p>Created by {{user.name}} on {{format_date date}}</p>
-</div>
+{{!-- Blog Post --}}
+<section class="container my-5 ">
+  <section id ="header-card" class="col-12 card post-card">
+    <section class="header-stripe bg-gradient">
+      <h2>{{title}}</h2>
+    </section>
+    <section class="tagline-stripe bg-gradient">
+      <p>Created by {{user.name}} on {{format_date date}}</p>
+    </section>
+    <div class="blog-text">
+      <p class="two-columns">
+        {{blog_text}}
+      </p>
+    </div>
+  </section>
+</section>
+
+{{!-- Create Comment --}}
+{{!-- <section id="createComment" class="col-md-6 "> --}}
+<section class="container my-5 ">
+  <section id ="header-card" class="col-12 card post-card">
+    <section class="create-stripe bg-gradient">
+      <h2>Have something to say?</h2>
+    </section>
+    <form class="form new-comment-form">
+      <div class="form-group">
+        <label for="comment-content">Comment:</label>
+        <textarea class="form-input" id="comment-content" name="comment-content"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" id= "submit" class="btn btn-primary">Comment</button>
+      </div>
+    </form>
+  </section>
+</section>
+
+
+{{!-- Comments posted --}}
+<div>
   {{#if blogPosts.length}}
     {{#each blogPosts as |blog|}}
     <div id="currentComments" class="row mb-2">
@@ -19,16 +52,7 @@
     {{/each}}
   {{/if}}
 </div>
-<div id="createComment" class="col-md-6 ">
-    <h3>Have something to say?</h3>
-    <form class="form new-comment-form">
-      <div class="form-group">
-        <label for="comment-content">Comment:</label>
-        <textarea class="form-input" id="comment-content" name="comment-content"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" id= "submit" class="btn btn-primary">Comment</button>
-      </div>
-    </form>
-</div>
+
+
+{{!-- script --}}
 <script src="/js/comment.js"></script>
