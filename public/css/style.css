@@ -138,12 +138,12 @@ header, .blogPost:not(:last-child) {
     footer a:link {
       color: white !important;
     }
-    a:visited {
+    footer a:visited {
       color: white;
       }
   
     footer a:hover {
-      color: hotpink;
+      color: rgb(0, 0, 0) !important;
     }
   
     a:link {
