@@ -79,6 +79,8 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
 
 https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
 
+https://gist.github.com/JayHoltslander/9998612
+
 
 
 ## License
