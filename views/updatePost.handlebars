@@ -2,16 +2,16 @@
 <div class="row mt-4">
   <div id="create-card" class="col-9 card dashboard-card mx-auto">
     <div class="create-stripe">
-      <h3>Create a New Blog Post:</h3>
+      <h3>Update Blog Post:</h3>
     </div>
     <form class="form new-blogPost-form">
       <div class="form-group">
         {{!-- <label for="blogPost-name">{{title}}</label> --}}
-        <input class="form-input" type="text" id="blogPost-name" name="blogPost-name" placeholder="{{title}}" />
+        <input class="form-input" type="text" id="blogPost-name" name="blogPost-name" placeholder={{title}}>
       </div>
       <div class="form-group">
         {{!-- <label for="blogPost-content">Content:</label> --}}
-        <textarea class="form-input" id="blogPost-content" name="blogPost-content" placeholder="{{blog_text}}"></textarea>
+        <textarea class="form-input" id="blogPost-content" name="blogPost-content">{{blog_text}}</textarea>
       </div>
       <div class="form-group">
         <button type="submit" id= "submit" class="btn btn-primary">Create</button>
@@ -22,4 +22,4 @@
 
 
 {{!-- Script --}}
-<script src="/js/dashboard.js"></script>
+<script src="/js/update.js"></script>
