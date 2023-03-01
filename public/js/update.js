@@ -20,13 +20,13 @@ const updateBtnHandler = async (event) => {
     const response = await fetch(`/api/updatepost/${id}`, {
       method: 'PUT',
       body: JSON.stringify({ updatedName, updatedContent }),
-      headers: { "Content-Type": "application/json" },
+      headers: { 'Content-Type': 'application/json' },
     });
     // console.log(response);
 
     if (response.ok) {
       console.log('worked');
-      // document.location.replace('/dashboard');
+      document.location.replace('/dashboard');
     }
   } catch (err) {
     console.log(err); //used for debugging
