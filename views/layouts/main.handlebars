@@ -5,18 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coding with Caoimhe!</title>
-    <link rel="stylesheet" href="/css/jass.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
+    <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
     <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-    
-        <nav>
+    {{!-- <header class="display-flex justify-space-between align-center p-2"> --}}
+    <header class="text-center p-4 bg-success bg-gradient text-white">
+        <h1 class="fw-bold">Coding with Caoimhe!</h1>       
+    </header>
+    <nav class="text-center p-4">
             {{!-- Home link --}}
             <a href="/">Home</a> |
-
 
             {{!-- Dashboard link --}}
             <a href="/dashboard">Dashboard</a> |
@@ -30,40 +33,14 @@
             {{/if}}
 
         </nav>
-        <h1>Coding with Caoimhe!</h1>       
-    </header>
     <main>
         {{{ body }}}
-        {{!-- on welcome/home page: --}}
-        {{!-- display current blog posts.--}}
-        {{!-- if a blog post is selected: 
-            THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
-            WHEN I enter a comment and click on the submit button while signed in
-            THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created --}}
-        
-        {{!-- on dashboard (accessed only once logged in)--}}
-        {{!-- user can input new blog posts--}}
-        {{!--   THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-                WHEN I click on the button to add a new blog post
-                THEN I am prompted to enter both a title and contents for my blog post
-                WHEN I click on the button to create a new blog post
-                THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-                WHEN I click on one of my existing posts in the dashboard
-                THEN I am able to delete or update my post and taken back to an updated dashboard
-                --}}
-
-        {{!-- on logout link --}}
-        {{!--   WHEN I click on the logout option in the navigation
-                THEN I am signed out of the site
-                WHEN I am idle on the site for more than a set time
-                THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments --}}
-
     </main>
     <footer>
       
     </footer>
   </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
