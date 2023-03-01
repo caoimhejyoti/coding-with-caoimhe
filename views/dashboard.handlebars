@@ -38,11 +38,16 @@
           <section class="header-stripe bg-gradient">
             <h4><a href="/blogposts/{{blog.id}}">{{blog.title}}</a></h4>
           </section>
+          <div class="blog-text">
+            <p class="two-columns">
+              {{blog_text}}
+            </p>
+          </div>
         </section>
       </div>
       <div id="currentPosts" class="row mb-2">
       <div id="dashboard-btns" class="col-md-2 p-2">
-        <a role="button" class="btn btn-sm btn-danger updateBtn" href="/api/updatepost/{{blog.id}}">UPDATE</a>
+        <a role="button" class="btn btn-sm btn-success updateBtn" href="/api/updatepost/{{blog.id}}">UPDATE</a>
       </div>
       <div id="dashboard-btns" class="col-md-2 p-2">
         <button type="button" class="btn btn-sm btn-danger delBtn" data-id="{{blog.id}}">DELETE</button>
