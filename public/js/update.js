@@ -12,25 +12,30 @@ const updateBtnHandler = async (event) => {
     .querySelector('#update-blogPost-content')
     .value.trim();
 
-  try {
-    console.log(updatedName); //used for debugging
-    console.log(updatedContent); //used for debugging
-    const id = event.target.getAttribute('data-id');
-    console.log(id);
-    const response = await fetch(`/api/updatepost/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify({ updatedName, updatedContent }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    // console.log(response);
+  if (updatedName && updatedContent) {
+    try {
+      console.log(updatedName); //used for debugging
+      console.log(updatedContent); //used for debugging
+      const id = event.target.getAttribute('data-id');
+      console.log(id);
+      const response = await fetch(`/api/updatepost/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ updatedName, updatedContent }),
+        headers: { 'Content-Type': 'application/json' },
+      });
 
-    if (response.ok) {
-      console.log('worked');
-      document.location.replace('/dashboard');
+      // console.log(response);
+
+      if (response.ok) {
+        console.log('worked');
+        document.location.replace('/dashboard');
+      }
+    } catch (err) {
+      console.log(err); //used for debugging
+      alert('Failed to update Post');
     }
-  } catch (err) {
-    console.log(err); //used for debugging
-    alert('Failed to update Post');
+  } else {
+    alert('Please ensure you have updated the Title and Content.');
   }
 };
 
