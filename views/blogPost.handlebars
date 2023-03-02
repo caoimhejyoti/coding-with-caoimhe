@@ -54,10 +54,10 @@
           </div>
 
           <div id="dashboard-btns" class="col-md-2 p-2">
-            <a role="button" class="btn btn-sm btn-success updateBtn" href="/api/comments/{{c.blogPost_id}}">UPDATE</a>
+            <a role="button" class="btn btn-sm btn-success comment-updateBtn" href="/api/comments/{{c.id}}">UPDATE</a>
           </div>
           <div id="dashboard-btns" class="col-md-2 p-2">
-            <button type="button" class="btn btn-sm btn-danger delBtn" data-id="{{c.id}}">DELETE</button>
+            <button id="comment-del" type="button" class="btn btn-sm btn-danger comment-delBtn" data-id="{{c.id}}">DELETE</button>
           </div>
           </div>
         {{else}}
