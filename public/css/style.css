@@ -58,7 +58,7 @@ header, .blogPost:not(:last-child) {
         background:#b80c09;
         float: left;
         /* width: 100%; */
-        height: 100px;
+        height: 50px;
         overflow: hidden;
         justify-content: center;
         align-content: center;
@@ -67,7 +67,7 @@ header, .blogPost:not(:last-child) {
         background:#e18335;
         float: left;
         width: 100%;
-        height: 100px;
+        height: 50;
         overflow: hidden;
     }
     .post-card .tagline-stripe {

@@ -1,66 +1,74 @@
-{{!-- Blog Post --}}
-<section class="container my-5 ">
-  <section id ="header-card" class="col-12 card post-card">
-    <section class="header-stripe bg-gradient">
-      <h2>{{title}}</h2>
+<div class="col-md-11 card dashboard-card mx-auto">
+
+  {{!-- Blog Post --}}
+  <section class="container my-5 ">
+    <section id ="header-card" class="col-12 card post-card">
+      <section class="header-stripe bg-gradient">
+        <h2>{{title}}</h2>
+      </section>
+      <section class="tagline-stripe bg-gradient">
+        <p>Created by {{user.name}} on {{format_date date}}</p>
+      </section>
+      <div class="blog-text">
+        <p class="two-columns">
+          {{blog_text}}
+        </p>
+      </div>
     </section>
-    <section class="tagline-stripe bg-gradient">
-      <p>Created by {{user.name}} on {{format_date date}}</p>
+  </section>
+
+  {{!-- Create Comment --}}
+  {{!-- <section id="createComment" class="col-md-6 "> --}}
+  <section class="container my-5 ">
+    <section id ="header-card" class="col-12 card post-card">
+      <section class="create-stripe bg-gradient">
+        <h2>Have something to say?</h2>
+      </section>
+      <form class="form new-comment-form">
+        <div class="form-group">
+          <label for="comment-content">Comment:</label>
+          <textarea class="form-input" id="comment-content" name="comment-content"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" id= "submit" class="btn btn-primary comment-btn">Comment</button>
+        </div>
+      </form>
     </section>
-    <div class="blog-text">
-      <p class="two-columns">
-        {{blog_text}}
-      </p>
+  </section>
+
+
+  {{!-- Comments posted --}}
+  <section class="container my-5">
+    <div class="col-12 card post-card">
+      <section class="tagline-stripe bg-gradient">
+      <h2>Current Comments:</h2>
+      </section>
+      {{#if comments.length}}
+        {{#each comments as |c|}}
+        
+        <div id="currentComments" class="row mb-2 p-2">
+          <div class="col-md-6">
+            <p>{{c.comment}}</p>
+          </div>
+          <div class="col-md-2">
+            <p>{{user.name}}</p>
+          </div>
+
+          <div id="dashboard-btns" class="col-md-2 p-2">
+            <a role="button" class="btn btn-sm btn-success updateBtn" href="/api/updatepost/{{blog.id}}">UPDATE</a>
+          </div>
+          <div id="dashboard-btns" class="col-md-2 p-2">
+            <button type="button" class="btn btn-sm btn-danger delBtn" data-id="{{blog.id}}">DELETE</button>
+          </div>
+          </div>
+        {{else}}
+          <p>No comments made.</p>
+        {{/each}}
+        {{/if}}
     </div>
   </section>
-</section>
 
-{{!-- Create Comment --}}
-{{!-- <section id="createComment" class="col-md-6 "> --}}
-<section class="container my-5 ">
-  <section id ="header-card" class="col-12 card post-card">
-    <section class="create-stripe bg-gradient">
-      <h2>Have something to say?</h2>
-    </section>
-    <form class="form new-comment-form">
-      <div class="form-group">
-        <label for="comment-content">Comment:</label>
-        <textarea class="form-input" id="comment-content" name="comment-content"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" id= "submit" class="btn btn-primary comment-btn">Comment</button>
-      </div>
-    </form>
-  </section>
-</section>
-
-
-{{!-- Comments posted --}}
-<section class="container my-5">
-  <div class="col-12 card post-card">
-  {{!-- {{#if comments.length}} --}}
-    {{#each comments as |c|}}
-    <div id="currentComments" class="row mb-2 p-2">
-      <div class="col-md-6">
-        <p>{{c.comment}}</p>
-      </div>
-      <div class="col-md-2">
-        <p>{{user.name}}</p>
-      </div>
-
-      <div id="dashboard-btns" class="col-md-2 p-2">
-        <a role="button" class="btn btn-sm btn-success updateBtn" href="/api/updatepost/{{blog.id}}">UPDATE</a>
-      </div>
-      <div id="dashboard-btns" class="col-md-2 p-2">
-        <button type="button" class="btn btn-sm btn-danger delBtn" data-id="{{blog.id}}">DELETE</button>
-      </div>
-      </div>
-    {{else}}
-      <p>No comments made.</p>
-    {{/each}}
-  {{!-- {{/if}} --}}
-  </div>
-</section>
+</div>
 
 
 
