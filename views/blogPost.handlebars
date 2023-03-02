@@ -18,7 +18,6 @@
   </section>
 
   {{!-- Create Comment --}}
-  {{!-- <section id="createComment" class="col-md-6 "> --}}
   <section class="container my-5 ">
     <section id ="header-card" class="col-12 card post-card">
       <section class="create-stripe bg-gradient">
@@ -55,10 +54,10 @@
           </div>
 
           <div id="dashboard-btns" class="col-md-2 p-2">
-            <a role="button" class="btn btn-sm btn-success updateBtn" href="/api/updatepost/{{blog.id}}">UPDATE</a>
+            <a role="button" class="btn btn-sm btn-success updateBtn" href="/api/comments/{{c.blogPost_id}}">UPDATE</a>
           </div>
           <div id="dashboard-btns" class="col-md-2 p-2">
-            <button type="button" class="btn btn-sm btn-danger delBtn" data-id="{{blog.id}}">DELETE</button>
+            <button type="button" class="btn btn-sm btn-danger delBtn" data-id="{{c.id}}">DELETE</button>
           </div>
           </div>
         {{else}}
@@ -75,7 +74,3 @@
 
 {{!-- script --}}
 <script src="/js/comment.js"></script>
-
-
-    {{!-- </div> --}}
-    {{!-- <div id="currentPosts" class="row mb-2"> --}}
