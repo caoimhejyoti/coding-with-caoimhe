@@ -24,8 +24,6 @@ Comments.belongsTo(BlogPost, {
   foreignKey: 'blogPost_id',
 });
 
-// associate user
-
 Comments.belongsTo(User, {
   foreignKey: 'user_id',
 });
