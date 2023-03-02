@@ -1,29 +1,57 @@
 const router = require('express').Router();
-const { Comments } = require('../../models');
+const { Comments, BlogPost, User } = require('../../models');
 
 const withAuth = require('../../utils/auth');
 
-// // DESCRIPTION: Creating a new comment
-// router.post('/:id', withAuth, async (req, res) => {
-//   try {
-//     const id = req.params.id;
-//     const newComment = await Comments.create({
-//       user_id: req.session.user_id,
-//       comment: req.body.name,
-//       blogPost_id: id,
-//       date: new Date(),
-//     });
+// DESCRIPTION: Get single comment based on id
+router.get('/:id', async (req, res) => {
+  try {
+    // console.log('Hello'); //used for debugging purposes
+    const commentData = await Comments.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+        {
+          model: BlogPost,
+        },
+      ],
+    });
+    console.log(commentData); //used for debugging purposes
+    const commentInfo = commentData.get({ plain: true });
+    console.log(commentInfo);
+    res.render('BlogPost', {
+      ...commentInfo,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-//     console.log(newComment);
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const chosenId = req.params.id;
+    const deletedComment = await Comments.destroy({
+      where: {
+        id: chosenId,
+      },
+    });
 
-//     res.status(200).json(newComment);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(400).json(err);
-//   }
-// });
+    if (!deletedComment) {
+      res.status(404).json({ message: 'No Comment with this id!' });
+      return;
+    }
 
-// DESCRIPTION: Creating a new comment
+    deletedComment;
+    res.status(200).json({ message: 'Commet successfully deleted.' });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// WORKING! DESCRIPTION: Creating a new comment
 router.post('/', withAuth, async (req, res) => {
   try {
     console.log('inside comment POST request');
@@ -40,8 +68,6 @@ router.post('/', withAuth, async (req, res) => {
       }
     );
 
-    // console.log('new comment:');
-    // console.log(newComment);
     const userComment = newComment.get({ plain: true });
 
     res.render('blogpost', {

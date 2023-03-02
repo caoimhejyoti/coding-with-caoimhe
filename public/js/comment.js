@@ -71,12 +71,12 @@ const delButtonHandler = async (event) => {
   try {
     const id = event.target.getAttribute('data-id');
     console.log(id);
-    const response = await fetch(`/dashboard/${id}`, {
+    const response = await fetch(`/blogposts/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/blogposts');
     }
   } catch (err) {
     alert('Failed to delete Post');
@@ -92,14 +92,18 @@ commentBtn.addEventListener(
 );
 
 // FIXME: this is not currently working
-const updateBtn = document.querySelectorAll('updateBtn');
+const updateBtn = document.querySelectorAll('.updateBtn');
 updateBtn.addEventListener(
   'click',
   updateCommentHandler,
   console.log('clicked submit to update comment')
 );
 
+
+const delCommentBtn = document.querySelectorAll('.comment-delbtn');
+delCommentBtn.addEventListener('click', delButtonHandler, console.log("clicked delete comment");)
+
 // FIXME: only copied across
-document.querySelectorAll('.delBtn').forEach((deleteButton) => {
+document.querySelectorAll('#comment-del').forEach((deleteButton) => {
   deleteButton.addEventListener('click', delButtonHandler);
 });
