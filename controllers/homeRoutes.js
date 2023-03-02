@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 
 router.get('/blogposts/:id', withAuth, async (req, res) => {
   try {
-    console.log('Hello');
+    // console.log('Hello'); //used for debugging purposes
     const BlogPostData = await BlogPost.findByPk(req.params.id, {
       include: [
         {
@@ -43,7 +43,7 @@ router.get('/blogposts/:id', withAuth, async (req, res) => {
         },
       ],
     });
-    console.log(BlogPostData);
+    // console.log(BlogPostData); //used for debugging purposes
     const BlogPostInfo = BlogPostData.get({ plain: true });
 
     res.render('BlogPost', {
