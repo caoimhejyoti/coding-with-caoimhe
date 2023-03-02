@@ -28,7 +28,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
 //WORKING!  DESCRIPTION: update a blog post by its `id` value
 router.put('/:id', withAuth, async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body); //used for debugging
   try {
     const updatedPost = await BlogPost.update(
       { title: req.body.updatedName, blog_text: req.body.updatedContent },
@@ -39,11 +39,9 @@ router.put('/:id', withAuth, async (req, res) => {
       }
     );
     if (!updatedPost) {
-      res
-        .status(404)
-        .json({
-          message: 'Not able to update post at this time. Try again later.',
-        });
+      res.status(404).json({
+        message: 'Not able to update post at this time. Try again later.',
+      });
       return;
     }
 
