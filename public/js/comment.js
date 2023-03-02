@@ -13,7 +13,7 @@ const newCommentHandler = async (event) => {
 
   if (comment && post_id) {
     console.log("Inside if, before commnet post req");
-    const response = await fetch(`/api/blogposts`, {
+    const response = await fetch(`/api/comments`, {
       method: 'POST',
       body: JSON.stringify({ comment, post_id }),
       headers: {
@@ -22,7 +22,7 @@ const newCommentHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/blogposts/:id');
+      document.location.replace(`/blogposts/${post_id}`);
     } else {
       alert('Failed to create Comment');
     }

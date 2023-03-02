@@ -39,15 +39,22 @@
 <section class="container my-5">
   <div class="col-12 card post-card">
   {{!-- {{#if comments.length}} --}}
-    {{#each Comments as |c|}}
-    <div id="currentComments" class="row mb-2">
-      <div class="col-md-8">
-        <h4>{{c.comment}}</a></h4>
+    {{#each comments as |c|}}
+    <div id="currentComments" class="row mb-2 p-2">
+      <div class="col-md-6">
+        <p>{{c.comment}}</p>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-2">
         <p>{{user.name}}</p>
       </div>
-    </div>
+
+      <div id="dashboard-btns" class="col-md-2 p-2">
+        <a role="button" class="btn btn-sm btn-success updateBtn" href="/api/updatepost/{{blog.id}}">UPDATE</a>
+      </div>
+      <div id="dashboard-btns" class="col-md-2 p-2">
+        <button type="button" class="btn btn-sm btn-danger delBtn" data-id="{{blog.id}}">DELETE</button>
+      </div>
+      </div>
     {{else}}
       <p>No comments made.</p>
     {{/each}}
@@ -56,5 +63,11 @@
 </section>
 
 
+
+
 {{!-- script --}}
 <script src="/js/comment.js"></script>
+
+
+    {{!-- </div> --}}
+    {{!-- <div id="currentPosts" class="row mb-2"> --}}
