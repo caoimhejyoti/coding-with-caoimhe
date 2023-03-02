@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const BlogPost = require('./BlogPost');
+const User = require('./User');
 
 // DESCRIPTION: Initialize Comments model (table) by extending off Sequelize's Model class
 class Comments extends Model {}
@@ -22,6 +23,13 @@ Comments.init(
       type: DataTypes.INTEGER,
       references: {
         model: BlogPost,
+        key: 'id',
+      },
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: User,
         key: 'id',
       },
     },
