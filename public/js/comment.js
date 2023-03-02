@@ -1,32 +1,40 @@
-console.log("hello - in comment.js"); //used for debugging
+console.log('hello - in comment.js'); //used for debugging
 
-//WORKING!
+//CONFIRM IF WORKING
 const newCommentHandler = async (event) => {
-  console.log("hello - in newCommentHandler"); //used for debugging
   event.preventDefault();
-  console.log("inside newCommentHandler");
+  console.log('hello - in newCommentHandler'); //used for debugging
 
   const comment = document.querySelector('#comment-content').value.trim();
+  const post_id = window.location.toString().split('/').pop();
 
-  if (comment) {
-    const response = await fetch(`/api/blogposts/:id`, {
+  console.log(comment);
+  console.log(post_id);
+
+  if (comment && post_id) {
+    console.log("Inside if, before commnet post req");
+    const response = await fetch(`/api/blogposts`, {
       method: 'POST',
-      body: JSON.stringify({ comment}),
+      body: JSON.stringify({ comment, post_id }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      document.location.replace('/api/blogposts/:id');
+      document.location.replace('/blogposts/:id');
     } else {
       alert('Failed to create Comment');
-    }; 
-  }else{
+    }
+  } else {
     alert('Please ensure you have written a comment.');
-  };
+  }
 };
 
-const commentBtn = document.querySelector('#submit')
+const commentBtn = document.querySelector('.comment-btn');
 
-commentBtn.addEventListener('submit',newCommentHandler);
+commentBtn.addEventListener(
+  'click',
+  newCommentHandler,
+  console.log('clicked comment')
+);
