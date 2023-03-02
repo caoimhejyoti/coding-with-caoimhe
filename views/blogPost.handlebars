@@ -36,22 +36,24 @@
 
 
 {{!-- Comments posted --}}
-<div>
-  {{#if blogPosts.length}}
-    {{#each blogPosts as |blog|}}
+<section class="container my-5">
+  <div class="col-12 card post-card">
+  {{!-- {{#if comments.length}} --}}
+    {{#each Comments as |c|}}
     <div id="currentComments" class="row mb-2">
       <div class="col-md-8">
-        <h4>{{comment.comment}}</a></h4>
+        <h4>{{c.comment}}</a></h4>
       </div>
       <div class="col-md-4">
-        <p>{{user.name}}</p>>
+        <p>{{user.name}}</p>
       </div>
     </div>
     {{else}}
       <p>No comments made.</p>
     {{/each}}
-  {{/if}}
-</div>
+  {{!-- {{/if}} --}}
+  </div>
+</section>
 
 
 {{!-- script --}}
