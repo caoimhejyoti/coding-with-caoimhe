@@ -30,6 +30,8 @@ router.get('/', async (req, res) => {
   }
 });
 
+
+
 // //DESCRIPTION: Creating a new blog comment
 // router.post('/', withAuth, async (req, res) => {
 //   try {
