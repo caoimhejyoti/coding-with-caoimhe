@@ -8,63 +8,29 @@ CMS-style blog about coding for developers.
 
 ----------------------------------------------------------------
 
-[About](#about)  ✦  [User Story](#user-story)  ✦  [Acceptance Criteria](#acceptance-criteria)  ✦  [Prerequisites](#prerequisites)  ✦  [Usage](#usage)  ✦  [Future Developments](#future-developments)  ✦  [Resources](#resources)  ✦  [License](#license)  ✦  [Contact](#contact)
+[About](#about)  ✦  [Usage](#usage)  ✦  [Future Developments](#future-developments)  ✦  [Resources](#resources)  ✦  [License](#license)  ✦  [Contact](#contact)
 
 ----------------------------------------------------------------
 
 ## About
 This app is a CMS style blog for developers to post about their coding discoveries, top tips and projects. Have a read of what others have discovered. Sign up and log in to see the comments from the community and add your own. Have you got something you want to tell the world? Make your own blog post and add to the community.
 
-## User Story
-```md
-AS A developer who writes about tech
-I WANT a CMS-style blog site
-SO THAT I can publish articles, blog posts, and my thoughts and opinions
-```
-
-## Acceptance Criteria
-```md
-GIVEN a CMS-style blog site
-WHEN I visit the site for the first time
-COMPLETE! THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
-WHEN I click on the homepage option
-COMPLETE! THEN I am taken to the homepage
-WHEN I click on any other links in the navigation
-COMPLETE! THEN I am prompted to either sign up or sign in
-WHEN I choose to sign up
-COMPLETE! THEN I am prompted to create a username and password
-WHEN I click on the sign-up button
-TODO: THEN my user credentials are saved and I am logged into the site FIXME: [needs to refresh to dashboard/homepage]
-WHEN I revisit the site at a later time and choose to sign in
-COMPLETE! THEN I am prompted to enter my username and password
-WHEN I am signed in to the site
-COMPLETE! THEN I see navigation links for the homepage, the dashboard, and the option to log out
-WHEN I click on the homepage option in the navigation
-COMPLETE! THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
-WHEN I click on an existing blog post
-COMPLETE! THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
-WHEN I enter a comment and click on the submit button while signed in
-TODO: THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-WHEN I click on the dashboard option in the navigation
-COMPLETE! THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-WHEN I click on the button to add a new blog post
-COMPLETE! THEN I am prompted to enter both a title and contents for my blog post
-WHEN I click on the button to create a new blog post
-COMPLETE! THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-WHEN I click on one of my existing posts in the dashboard
-COMPLETE! THEN I am able to delete or update my post and taken back to an updated dashboard
-WHEN I click on the logout option in the navigation
-COMPLETE! THEN I am signed out of the site
-WHEN I am idle on the site for more than a set time
-TODO: THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
-```
-
-
-## Prerequisites
-
-
 
 ## Usage
+Please follow the link below to see the deployed app:
+
+https://coding-with-caoimhe.herokuapp.com/
+
+
+When you first arrive at the app you will see a list of the currently posted Blog posts.
+
+When you try to look at any of the blog posts in further detail, you will be required to either sign up or log in. 
+
+Once logged in you will be taken to your accouint dashboard. There you can see the posts you have created, create new blog posts or edit any you have already made. 
+
+You can also look at other posts in detail via the homepage. Here you will be able to see any comments made on the blog posts. 
+
+We are currently working on the abilty to update and/or delete comments. Please come back soon to see these developements. 
 
 
 ## Future Developments
