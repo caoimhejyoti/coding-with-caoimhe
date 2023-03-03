@@ -50,7 +50,7 @@ router.get('/blogposts/:id', withAuth, async (req, res) => {
     // console.log(BlogPostData); //used for debugging purposes
     const BlogPostInfo = BlogPostData.get({ plain: true });
     console.log(BlogPostInfo);
-    res.render('BlogPost', {
+    res.render('blogPost', {
       ...BlogPostInfo,
       logged_in: req.session.logged_in,
     });
