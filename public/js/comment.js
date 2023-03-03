@@ -92,7 +92,7 @@ commentBtn.addEventListener(
 );
 
 // FIXME: this is not currently working
-const updateBtn = document.querySelectorAll('.updateBtn');
+const updateBtn = document.querySelectorAll('#update-comment');
 updateBtn.addEventListener(
   'click',
   updateCommentHandler,
@@ -100,10 +100,10 @@ updateBtn.addEventListener(
 );
 
 
-const delCommentBtn = document.querySelectorAll('.comment-delbtn');
-delCommentBtn.addEventListener('click', delButtonHandler, console.log("clicked delete comment");)
+// const delCommentBtn = document.querySelectorAll('.comment-delbtn');
+// delCommentBtn.addEventListener('click', delButtonHandler, console.log("clicked delete comment"));
 
-// FIXME: only copied across
-document.querySelectorAll('#comment-del').forEach((deleteButton) => {
-  deleteButton.addEventListener('click', delButtonHandler);
-});
+// // FIXME: only copied across
+// document.querySelectorAll('#comment-del').forEach((deleteButton) => {
+//   deleteButton.addEventListener('click', delButtonHandler);
+// });
