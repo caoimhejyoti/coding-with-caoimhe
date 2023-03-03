@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
     console.log(commentData); //used for debugging purposes
     const commentInfo = commentData.get({ plain: true });
     console.log(commentInfo);
-    res.render('BlogPost', {
+    res.render('blogPost', {
       ...commentInfo,
       logged_in: req.session.logged_in,
     });
