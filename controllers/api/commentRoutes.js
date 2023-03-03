@@ -70,7 +70,7 @@ router.post('/', withAuth, async (req, res) => {
 
     const userComment = newComment.get({ plain: true });
 
-    res.render('blogpost', {
+    res.render('blogPost', {
       userComment,
       logged_in: req.session.logged_in,
     });
