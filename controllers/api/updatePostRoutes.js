@@ -17,7 +17,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
     const BlogPostInfo = blogPostData.get({ plain: true });
 
-    res.render('updatepost', {
+    res.render('updatePost', {
       BlogPostInfo,
       logged_in: req.session.logged_in,
     });
