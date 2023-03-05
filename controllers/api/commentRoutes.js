@@ -6,7 +6,7 @@ const withAuth = require('../../utils/auth');
 // DESCRIPTION: Get single comment based on id
 router.get('/:id', async (req, res) => {
   try {
-    // console.log('Hello'); //used for debugging purposes
+    console.log('in get comment router'); //used for debugging purposes
     const commentData = await Comments.findByPk(req.params.id, {
       include: [
         {
@@ -18,11 +18,11 @@ router.get('/:id', async (req, res) => {
         },
       ],
     });
-    console.log(commentData); //used for debugging purposes
+    console.log("THIS IS COMMENT DATA" + commentData); //used for debugging purposes
     const commentInfo = commentData.get({ plain: true });
     console.log(commentInfo);
     res.render('updateComment', {
-      ...commentInfo,
+      commentInfo,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
