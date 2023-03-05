@@ -28,11 +28,11 @@
 </div>
 
 {{!-- Current Blog Posts --}}
+{{#if blogPosts.length}}
 <div class="col-md-6 card dashboard-card mx-auto">
   <h3 class="row">Current Blog Posts: </h3>
-  {{#if blogPosts.length}}
-    {{#each blogPosts as |blog|}}
     <section class="container my-5 ">
+    {{#each blogPosts as |blog|}}
       <div class="row">   
         <section id ="header-card" class="col-12 card post-card">
           <section class="header-stripe bg-gradient">
@@ -55,8 +55,8 @@
       </div>
     {{else}}
     <p>No posts currently created.</p>
-    </section>
     {{/each}}
+    </section>
   {{/if}}
 </div>
 
