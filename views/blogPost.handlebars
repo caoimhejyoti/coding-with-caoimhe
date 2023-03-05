@@ -23,6 +23,7 @@
       <section class="create-stripe bg-gradient">
         <h2>Have something to say?</h2>
       </section>
+      {{#if logged_in}}
       <form class="form new-comment-form">
         <div class="form-group">
           <label for="comment-content">Comment:</label>
@@ -32,6 +33,11 @@
           <button type="submit" id= "submit" class="btn btn-primary comment-btn">Comment</button>
         </div>
       </form>
+      {{else}}
+      <div id="dashboard-btns" class="col-md-2 p-2">
+      <a role="button" class="btn btn-sm btn-success" href="/login">LOGIN</a>
+      </div>
+      {{/if}}
     </section>
   </section>
 
@@ -42,28 +48,48 @@
       <section class="tagline-stripe bg-gradient">
       <h2>Current Comments:</h2>
       </section>
-      {{#if comments.length}}
-        {{#each comments as |c|}}
-        
-        <div id="currentComments" class="row mb-2 p-2">
-          <div class="col-md-6">
-            <p>{{c.comment}}</p>
-          </div>
-          <div class="col-md-2">
-            <p>{{user.name}} on {{c.date}}</p>
-          </div>
+      {{#if logged_in}}
+        {{#if comments.length}}
+          {{#each comments as |c|}}
+          
+          <div id="currentComments" class="row mb-2 p-2">
+            <div class="col-md-6">
+              <p>{{c.comment}}</p>
+            </div>
+            <div class="col-md-2">
+              <p>{{user.name}} on {{c.date}}</p>
+            </div>
 
-          <div id="dashboard-btns" class="col-md-2 p-2">
-            <a role="button" class="btn btn-sm btn-success comment-updateBtn" href="/api/comments/{{c.id}}">UPDATE</a>
-          </div>
-          <div id="dashboard-btns" class="col-md-2 p-2">
-            <button id="comment-del" type="button" class="btn btn-sm btn-danger comment-delBtn" data-id={{c.id}}>DELETE</button>
-          </div>
-          </div>
-        {{else}}
-          <p>No comments made.</p>
-        {{/each}}
+            
+            <div id="dashboard-btns" class="col-md-2 p-2">
+              <a role="button" class="btn btn-sm btn-success comment-updateBtn" href="/api/comments/{{c.id}}">UPDATE</a>
+            </div>
+            <div id="dashboard-btns" class="col-md-2 p-2">
+              <button id="comment-del" type="button" class="btn btn-sm btn-danger comment-delBtn" data-id={{c.id}}>DELETE</button>
+            </div>
+            
+            </div>
+          {{else}}
+            <p>No comments made.</p>
+          {{/each}}
         {{/if}}
+      {{else}}
+        {{#if comments.length}}
+          {{#each comments as |c|}}
+          
+          <div id="currentComments" class="row mb-2 p-2">
+            <div class="col-md-6">
+              <p>{{c.comment}}</p>
+            </div>
+            <div class="col-md-2">
+              <p>{{user.name}} on {{c.date}}</p>
+            </div>
+            {{else}}
+            <p>No comments made.</p>
+          {{/each}}
+
+        {{/if}}
+      {{/if}}
     </div>
   </section>
 

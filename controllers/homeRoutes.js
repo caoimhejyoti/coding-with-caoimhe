@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blogposts/:id', withAuth, async (req, res) => {
+router.get('/blogposts/:id', async (req, res) => {
   try {
     // console.log('Hello'); //used for debugging purposes
     const BlogPostData = await BlogPost.findByPk(req.params.id, {
