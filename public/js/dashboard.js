@@ -32,7 +32,7 @@ const newFormHandler = async (event) => {
 const delButtonHandler = async (event) => {
   try {
     const id = event.target.getAttribute('data-id');
-    console.log(id);
+
     const response = await fetch(`/dashboard/${id}`, {
       method: 'DELETE',
     });
@@ -50,7 +50,7 @@ const updateBtnHandler = async (event) => {
   const id = event.target.getAttribute('data-id');
 
   const response = await fetch(`/api/updatepost/${id}`, {
-    method: "GET",
+    method: 'GET',
     body: JSON.stringify(id),
     headers: {
       'Content-Type': 'application/json',
@@ -58,10 +58,11 @@ const updateBtnHandler = async (event) => {
   });
 
   if (response.ok) {
-  document.location.replace(`/api/updatepost/${id}`);
+    document.location.replace(`/api/updatepost/${id}`);
   } else {
     alert('Unable to update post at this time. Please try again');
-}};
+  }
+};
 
 const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', newFormHandler);
