@@ -68,7 +68,7 @@
               <button id="comment-del" type="button" class="btn btn-sm btn-danger comment-delBtn" data-id={{c.id}}>DELETE</button>
             </div>
             
-            </div>
+          </div>
           {{else}}
             <p>No comments made.</p>
           {{/each}}
@@ -76,21 +76,19 @@
       {{else}}
         {{#if comments.length}}
           {{#each comments as |c|}}
-          
-          <div id="currentComments" class="row mb-2 p-2">
-            <div class="col-md-6">
-              <p>{{c.comment}}</p>
+            <div id="currentComments" class="row mb-2 p-2">
+              <div class="col-md-6">
+                <p>{{c.comment}}</p>
+              </div>
+              <div class="col-md-2">
+                <p>{{user.name}} on {{c.date}}</p>
+              </div>
+              {{else}}
+              <p>No comments made.</p>
             </div>
-            <div class="col-md-2">
-              <p>{{user.name}} on {{c.date}}</p>
-            </div>
-            {{else}}
-            <p>No comments made.</p>
           {{/each}}
-
         {{/if}}
       {{/if}}
-    </div>
   </section>
 
 </div>
