@@ -1,15 +1,11 @@
-console.log('hello - in comment.js'); //used for debugging
+// console.log('hello - in comment.js'); //used for debugging
 
 //COMPLETE! DESCRIPTION: ASYNC FNC to create a new comment.
 const newCommentHandler = async (event) => {
   event.preventDefault();
-  console.log('hello - in newCommentHandler'); //used for debugging
 
   const comment = document.querySelector('#comment-content').value.trim();
   const post_id = window.location.toString().split('/').pop();
-
-  console.log(comment);
-  console.log(post_id);
 
   if (comment && post_id) {
     console.log('Inside if, before commnet post req');
@@ -31,47 +27,11 @@ const newCommentHandler = async (event) => {
   }
 };
 
-//DESCRIPTION: ASYNC FNC to update a comment using the specified id.
-const updateCommentHandler = async (event) => {
-  event.preventDefault();
-  console.log('hello - in update comment fnc'); //used for debugging
-
-  const updatedComment = document.querySelector('#update-comment').value.trim();
-
-  // const post_id = FIXME:;
-
-  if (updatedComment) {
-    try {
-      console.log(updatedComment); //used for debugging
-      const id = event.target.getAttribute('data-id');
-      console.log(id);
-      const response = await fetch(`/api/comments/${id}`, {
-        method: 'PUT',
-        body: JSON.stringify({ updatedComment }),
-        headers: { 'Content-Type': 'application/json' },
-      });
-
-      // console.log(response);
-
-      if (response.ok) {
-        console.log('worked');
-        document.location.replace('/blogposts/${post_id}');
-      }
-    } catch (err) {
-      console.log(err); //used for debugging
-      alert('Failed to update comment');
-    }
-  } else {
-    alert('Please ensure you have entered a new comment.');
-  }
-};
-
 //COMPLETE! DESCRIPTION: ASYNC FNC to delete a blog post using the specified id.
 const delButtonHandler = async (event) => {
   try {
     const post_id = window.location.toString().split('/').pop();
     const id = event.target.getAttribute('data-id');
-    console.log(id);
 
     const response = await fetch(`/api/comments/${id}`, {
       method: 'DELETE',
@@ -85,7 +45,7 @@ const delButtonHandler = async (event) => {
   }
 };
 
-// COMPLETE!
+// COMPLETE! DESCRIPTION: event listener for creating new comment
 const commentBtn = document.querySelector('.comment-btn');
 commentBtn.addEventListener(
   'click',
@@ -93,22 +53,7 @@ commentBtn.addEventListener(
   console.log('clicked comment')
 );
 
-// // FIXME: this is not currently working
-// const updateCommentBtn = document.querySelector('#submit-updated-comment');
-// updateCommentBtn.addEventListener(
-//   'click',
-//   updateCommentHandler,
-//   console.log('clicked submit to update comment')
-// );
-
-// document
-//   .querySelector('#submit-updated-comment')
-//   .addEventListener('click', updateCommentHandler);
-
-// const delCommentBtn = document.querySelectorAll('.comment-delbtn');
-// delCommentBtn.addEventListener('click', delButtonHandler, console.log("clicked delete comment"));
-
-// FIXME: only copied across
+// COMPLETE! DESCRIPTION: event listener for deleting comment by id.
 document.querySelectorAll('#comment-del').forEach((deleteButton) => {
   deleteButton.addEventListener('click', delButtonHandler);
 });
