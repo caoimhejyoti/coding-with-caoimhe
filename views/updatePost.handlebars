@@ -21,11 +21,11 @@
     <form class="form new-blogPost-form">
       <div class="form-group">
         <label for="blogPost-name">Title:</label>
-        <input class="form-input" type="text" id="update-blogPost-name" name="update-blogPost-name" placeholder={{title}}>
+        <input class="form-control" type="text" id="update-blogPost-name" name="update-blogPost-name" placeholder={{BlogPostInfo.title}}>
       </div>
       <div class="form-group">
         <label for="blogPost-content">Content:</label>
-        <textarea class="form-input" id="update-blogPost-content" name="update-blogPost-content">{{blog_text}}</textarea>
+        <textarea class="form-control" id="update-blogPost-content" name="update-blogPost-content">{{BlogPostInfo.blog_text}}</textarea>
       </div>
       <div class="form-group">
         <button type="submit" id= "submit" class="btn btn-primary" data-id={{BlogPostInfo.id}}>Update</button>
