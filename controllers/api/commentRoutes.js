@@ -82,4 +82,29 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// DESCRIPTION: update a comment by its `id` value
+router.put('/:id', withAuth, async (req, res) => {
+  try {
+    const updatedPost = await Comments.update(
+      { comment: req.body.updatedComment },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    if (!updatedPost) {
+      res.status(404).json({
+        message: 'Not able to update comment at this time. Try again later.',
+      });
+      return;
+    }
+
+    res.status(200).json(updatedPost);
+  } catch (err) {
+    console.log(err); //used for debugging
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
