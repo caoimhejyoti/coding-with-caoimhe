@@ -1,4 +1,4 @@
-{{!-- Blog Post --}}
+{{!-- Current Comment --}}
 <section class="container my-5 ">
   <section id ="header-card" class="col-12 card post-card">
     <section class="tagline-stripe bg-gradient">
@@ -10,19 +10,19 @@
   </section>
 </section>
 
-{{!-- Update Post --}}
+{{!-- Update Comment --}}
 <div class="container my-5">
   <div id="create-card" class="col-9 card dashboard-card mx-auto">
-    <div class="create-stripe">
+    <div class="create-stripe bg-gradient">
       <h3>Update comment:</h3>
     </div>
     <form class="form new-blogPost-form">
       <div class="form-group">
         <label for="update-comment">Comment:</label>
-        <textarea class="form-input" id="update-comment" name="update-comment" placeholder="{{commentInfo.comment}}"></textarea>
+        <textarea class="form-control" type="text" id="update-comment" name="update-comment" placeholder={{commentInfo.comment}}></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" id= "submit" class="btn btn-primary" data-id={{BlogPostInfo.id}}>Update</button>
+        <button type="submit" id= "submit-updated-comment" class="btn btn-primary" data-id={{BlogPostInfo.id}}>Update</button>
       </div>
     </form>
   </div>
