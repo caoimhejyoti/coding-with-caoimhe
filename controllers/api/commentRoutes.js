@@ -6,7 +6,6 @@ const withAuth = require('../../utils/auth');
 // DESCRIPTION: Get single comment based on id
 router.get('/:id', async (req, res) => {
   try {
-    console.log('in get comment router'); //used for debugging purposes
     const commentData = await Comments.findByPk(req.params.id, {
       include: [
         {
@@ -18,9 +17,9 @@ router.get('/:id', async (req, res) => {
         },
       ],
     });
-    console.log('THIS IS COMMENT DATA' + commentData); //used for debugging purposes
+
     const commentInfo = commentData.get({ plain: true });
-    console.log(commentInfo);
+
     res.render('updateComment', {
       commentInfo,
       logged_in: req.session.logged_in,
@@ -30,8 +29,8 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// DESCRIPTION: delete single comment based on id
 router.delete('/:id', withAuth, async (req, res) => {
-  console.log('INSIDE DELETE COMMENT REQ'); //used for debugging
   try {
     const chosenId = req.params.id;
     const deletedComment = await Comments.destroy({
@@ -52,10 +51,9 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
-// WORKING! DESCRIPTION: Creating a new comment
+// DESCRIPTION: Creating a new comment
 router.post('/', withAuth, async (req, res) => {
   try {
-    console.log('inside comment POST request');
     const id = req.session.user_id;
     const newComment = await Comments.create(
       {
