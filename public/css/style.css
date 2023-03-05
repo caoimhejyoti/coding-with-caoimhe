@@ -154,6 +154,9 @@ header, .blogPost:not(:last-child) {
       text-decoration: none;
       color: rgb(0, 0, 0);
       }
+        #card a:visited {
+          color: white;
+        }
         #header-card a:visited {
           color: black;
         }
