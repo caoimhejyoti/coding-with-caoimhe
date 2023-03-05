@@ -23,6 +23,7 @@
       <section class="create-stripe bg-gradient">
         <h2>Have something to say?</h2>
       </section>
+      {{!-- Ability to add comments when logged in --}}
       {{#if logged_in}}
       <form class="form new-comment-form">
         <div class="form-group">
@@ -34,6 +35,7 @@
         </div>
       </form>
       {{else}}
+      {{!-- If not logged in, user asked to login. --}}
       <div id="dashboard-btns" class="col-md-12 p-2">
       <a role="button" class="btn btn btn-primary" href="/login">LOGIN</a>
       </div>
@@ -48,10 +50,10 @@
       <section class="tagline-stripe bg-gradient">
       <h2>Current Comments:</h2>
       </section>
+      {{!-- Ability to edit/delete comments when logged in --}}
       {{#if logged_in}}
         {{#if comments.length}}
           {{#each comments as |c|}}
-          
           <div id="currentComments" class="row mb-2 p-2">
             <div class="col-md-6">
               <p>{{c.comment}}</p>
@@ -59,15 +61,13 @@
             <div class="col-md-2">
               <p>{{user.name}} on {{c.date}}</p>
             </div>
-
-            
+            {{!-- Buttons for comments --}}
             <div id="dashboard-btns" class="col-md-2 p-2">
               <a role="button" class="btn btn-sm btn-success comment-updateBtn" href="/api/comments/{{c.id}}">UPDATE</a>
             </div>
             <div id="dashboard-btns" class="col-md-2 p-2">
               <button id="comment-del" type="button" class="btn btn-sm btn-danger comment-delBtn" data-id={{c.id}}>DELETE</button>
             </div>
-            
           </div>
           {{else}}
             <p>No comments made.</p>
@@ -92,9 +92,6 @@
   </section>
 
 </div>
-
-
-
 
 {{!-- script --}}
 <script src="/js/comment.js"></script>

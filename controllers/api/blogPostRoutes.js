@@ -1,9 +1,8 @@
 const router = require('express').Router();
 const { BlogPost, Comments } = require('../../models');
-const withAuth = require('../../utils/auth');
 
+// DESCRIPTION: Get all comments for current blog post
 router.get('/', async (req, res) => {
-  console.log('inside get comments fnc');
   try {
     const commentData = await Comments.findAll({
       where: {
@@ -12,10 +11,8 @@ router.get('/', async (req, res) => {
       },
     });
 
-    // Serialize data so the template can read it
     const coms = commentData.map((coms) => coms.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
     res.render('blogPost', {
       coms,
       logged_in: req.session.logged_in,

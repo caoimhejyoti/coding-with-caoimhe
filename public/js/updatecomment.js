@@ -1,5 +1,3 @@
-console.log('hello - in updatecomment.js'); //used for debugging
-
 //DESCRIPTION: ASYNC FNC to update a comment using the specified id.
 const updateCommentHandler = async (event) => {
   event.preventDefault();
@@ -27,6 +25,7 @@ const updateCommentHandler = async (event) => {
   }
 };
 
+//EventListeners
 document
   .querySelector('#submit-updated-comment')
   .addEventListener('click', updateCommentHandler);

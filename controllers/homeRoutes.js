@@ -1,13 +1,10 @@
-// log in request
-// if not logged in - redirect.
-
 const router = require('express').Router();
 const { BlogPost, User, Comments } = require('../models');
 const withAuth = require('../utils/auth');
 
+// DESCRIPTION: Get all blog posts
 router.get('/', async (req, res) => {
   try {
-    // Get all BlogPosts and JOIN with user data
     const BlogPostData = await BlogPost.findAll({
       include: [
         {
@@ -17,12 +14,10 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    // Serialize data so the template can read it
     const BlogPosts = BlogPostData.map((BlogPost) =>
       BlogPost.get({ plain: true })
     );
 
-    // Pass serialized data and session flag into template
     res.render('homepage', {
       BlogPosts,
       logged_in: req.session.logged_in,
@@ -32,9 +27,9 @@ router.get('/', async (req, res) => {
   }
 });
 
+// DESCRIPTION: Get post comment based on id
 router.get('/blogposts/:id', async (req, res) => {
   try {
-    // console.log('Hello'); //used for debugging purposes
     const BlogPostData = await BlogPost.findByPk(req.params.id, {
       include: [
         {
@@ -47,9 +42,7 @@ router.get('/blogposts/:id', async (req, res) => {
         },
       ],
     });
-    // console.log(BlogPostData); //used for debugging purposes
     const BlogPostInfo = BlogPostData.get({ plain: true });
-    console.log(BlogPostInfo);
     res.render('blogPost', {
       ...BlogPostInfo,
       logged_in: req.session.logged_in,
@@ -59,7 +52,7 @@ router.get('/blogposts/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
+// DESCRIPTION: Route to get to dashboard - only accessible when logged in
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
@@ -79,8 +72,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
+// DESCRIPTION: If the user is already logged in, redirect the request to another route
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/dashboard');
     return;

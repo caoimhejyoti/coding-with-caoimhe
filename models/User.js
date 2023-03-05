@@ -35,7 +35,6 @@ User.init(
       allowNull: false,
       validate: {
         len: [8],
-        // add any other validation?
       },
     },
   },
@@ -46,7 +45,10 @@ User.init(
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        updatedUserData.password = await bcrypt.hash(
+          updatedUserData.password,
+          10
+        );
         return updatedUserData;
       },
     },

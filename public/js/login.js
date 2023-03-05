@@ -1,12 +1,11 @@
+//DESCRIPTION: ASYNC FNC to log user in.
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
-  // Collect values from the login form
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
 
   if (email && password) {
-    // Send a POST request to the API endpoint
     const response = await fetch('/api/users/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
@@ -14,14 +13,14 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the dashboard page
       document.location.replace('/dashboard');
     } else {
-      alert('Incorrect email or password, please try again')
+      alert('Incorrect email or password, please try again');
     }
   }
 };
 
+//DESCRIPTION: ASYNC FNC to create user.
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
@@ -39,11 +38,14 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      alert(
+        'Please make sure you have a name, valid email and password of 8 characters.'
+      );
     }
   }
 };
 
+// EventListeners
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);

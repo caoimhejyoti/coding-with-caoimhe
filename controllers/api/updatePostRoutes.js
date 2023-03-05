@@ -1,15 +1,13 @@
 const router = require('express').Router();
-const { Model } = require('sequelize');
-const { BlogPost, User } = require('../../models');
+// const { Model } = require('sequelize');
+const { BlogPost } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// WORKING! DESCRIPTION: get one blog post from id
+// DESCRIPTION: get one blog post from id
 router.get('/:id', withAuth, async (req, res) => {
-  // find one blog post by its `id` value
   try {
     const blogPostData = await BlogPost.findByPk(req.params.id);
-    console.log('hello');
-    console.log(blogPostData);
+
     if (!blogPostData) {
       res.status(404).json({ message: 'No Blog found with that id' });
       return;
@@ -26,9 +24,8 @@ router.get('/:id', withAuth, async (req, res) => {
   }
 });
 
-//WORKING!  DESCRIPTION: update a blog post by its `id` value
+// DESCRIPTION: update a blog post by its `id` value
 router.put('/:id', withAuth, async (req, res) => {
-  // console.log(req.body); //used for debugging
   try {
     const updatedPost = await BlogPost.update(
       { title: req.body.updatedName, blog_text: req.body.updatedContent },
@@ -47,7 +44,6 @@ router.put('/:id', withAuth, async (req, res) => {
 
     res.status(200).json(updatedPost);
   } catch (err) {
-    console.log(err); //used for debugging
     res.status(500).json(err);
   }
 });

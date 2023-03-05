@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Comments, BlogPost, User } = require('../../models');
-
 const withAuth = require('../../utils/auth');
 
 // DESCRIPTION: Get single comment based on id
@@ -77,7 +76,6 @@ router.post('/', withAuth, async (req, res) => {
 
     res.status(200).json(userComment);
   } catch (err) {
-    console.log(err);
     res.status(400).json(err);
   }
 });
@@ -102,7 +100,6 @@ router.put('/:id', withAuth, async (req, res) => {
 
     res.status(200).json(updatedPost);
   } catch (err) {
-    console.log(err); //used for debugging
     res.status(500).json(err);
   }
 });

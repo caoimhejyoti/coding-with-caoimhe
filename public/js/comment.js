@@ -1,6 +1,4 @@
-// console.log('hello - in comment.js'); //used for debugging
-
-//COMPLETE! DESCRIPTION: ASYNC FNC to create a new comment.
+// DESCRIPTION: ASYNC FNC to create a new comment.
 const newCommentHandler = async (event) => {
   event.preventDefault();
 
@@ -8,7 +6,6 @@ const newCommentHandler = async (event) => {
   const post_id = window.location.toString().split('/').pop();
 
   if (comment && post_id) {
-    console.log('Inside if, before commnet post req');
     const response = await fetch(`/api/comments`, {
       method: 'POST',
       body: JSON.stringify({ comment, post_id }),
@@ -27,7 +24,7 @@ const newCommentHandler = async (event) => {
   }
 };
 
-//COMPLETE! DESCRIPTION: ASYNC FNC to delete a blog post using the specified id.
+// DESCRIPTION: ASYNC FNC to delete a blog post using the specified id.
 const delButtonHandler = async (event) => {
   try {
     const post_id = window.location.toString().split('/').pop();
@@ -45,15 +42,10 @@ const delButtonHandler = async (event) => {
   }
 };
 
-// COMPLETE! DESCRIPTION: event listener for creating new comment
+//EventListeners
 const commentBtn = document.querySelector('.comment-btn');
-commentBtn.addEventListener(
-  'click',
-  newCommentHandler,
-  console.log('clicked comment')
-);
+commentBtn.addEventListener('click', newCommentHandler);
 
-// COMPLETE! DESCRIPTION: event listener for deleting comment by id.
 document.querySelectorAll('#comment-del').forEach((deleteButton) => {
   deleteButton.addEventListener('click', delButtonHandler);
 });

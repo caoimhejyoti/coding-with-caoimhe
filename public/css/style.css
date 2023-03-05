@@ -26,7 +26,6 @@ header, .blogPost:not(:last-child) {
   }
   
   p{
-    /* margin-bottom: 0.5rem; */
     display: flex;
   }
   
@@ -38,15 +37,12 @@ header, .blogPost:not(:last-child) {
     display: flex;
     align-items: center;
     margin: 5rem 0rem;
-    /* flex-grow: 2; */
-    /* justify-items: center; */
   }
   .post-card {
       font-family: 'Open Sans', Arial, sans-serif;
       position: relative;
       float: left;
       overflow: hidden;
-      /* width: 100%; */
       text-align: center;
       height:100%;
       border:none;
@@ -57,7 +53,6 @@ header, .blogPost:not(:last-child) {
     .post-card .header-stripe {
         background:#b80c09;
         float: left;
-        /* width: 100%; */
         height: 50px;
         overflow: hidden;
         justify-content: center;
@@ -83,7 +78,6 @@ header, .blogPost:not(:last-child) {
         align-content: center;
     }
     .post-card .card-content {
-      /* width: 100%; */
       padding: 10px 25px;
       color:#232323;
       float:left;
@@ -125,7 +119,6 @@ header, .blogPost:not(:last-child) {
       font-size:25px;
     }
     .post-card h2 small {
-      /* display: block; */
       display: flex;
       font-size: 15px;
       margin-top:10px;
@@ -133,7 +126,6 @@ header, .blogPost:not(:last-child) {
   
   footer{
     z-index:99999;
-    /* position: */
   }
     footer a:link {
       color: white !important;
@@ -203,6 +195,3 @@ p.two-columns {
   padding: 1rem;
 }
 
-/* #dashboard-btns{
-  display: inline-table;
-} */

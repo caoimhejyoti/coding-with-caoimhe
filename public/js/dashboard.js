@@ -1,6 +1,4 @@
-console.log('hello - in dashboard.js'); //used for debugging
-
-//COMPLETE! DESCRIPTION: ASYNC FNC to creat a new blog post
+// DESCRIPTION: ASYNC FNC to creat a new blog post
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -28,7 +26,7 @@ const newFormHandler = async (event) => {
   }
 };
 
-//COMPLETE! DESCRIPTION: ASYNC FNC to delete a blog post using the specified id.
+// DESCRIPTION: ASYNC FNC to delete a blog post using the specified id.
 const delButtonHandler = async (event) => {
   try {
     const id = event.target.getAttribute('data-id');
@@ -64,13 +62,10 @@ const updateBtnHandler = async (event) => {
   }
 };
 
+// EventListeners
 const submitButton = document.querySelector('#submit');
 submitButton.addEventListener('click', newFormHandler);
 
 document.querySelectorAll('.delBtn').forEach((deleteButton) => {
   deleteButton.addEventListener('click', delButtonHandler);
 });
-
-// document.querySelectorAll('.updateBtn').forEach((updateButton) => {
-//   updateButton.addEventListener('click', updateBtnHandler);
-// });

@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { BlogPost, User, Comments } = require('../models');
+const { BlogPost, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+// DESCRIPTION: Get all BlogPosts written by a user
 router.get('/', async (req, res) => {
   try {
-    // Get all BlogPosts and JOIN with user data
     const BlogPostData = await BlogPost.findAll({
       where: { user_id: req.session.user_id },
       include: [
@@ -15,12 +15,10 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    // Serialize data so the template can read it
     const BlogPosts = BlogPostData.map((BlogPost) =>
       BlogPost.get({ plain: true })
     );
 
-    // Pass serialized data and session flag into template
     res.render('homepage', {
       BlogPosts,
       logged_in: req.session.logged_in,
@@ -30,7 +28,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-//COMPLETE! DESCRIPTION: Creating a new blog post
+// DESCRIPTION: Creating a new blog post
 router.post('/', withAuth, async (req, res) => {
   try {
     const newUserPost = await BlogPost.create({
@@ -40,15 +38,13 @@ router.post('/', withAuth, async (req, res) => {
       date: new Date(),
     });
 
-    console.log(newUserPost);
-
     res.status(200).json(newUserPost);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-//COMPLETE! DESCRIPTION: Deleting specific blog post with ID
+// DESCRIPTION: Deleting specific blog post with ID
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const chosenId = req.params.id;
