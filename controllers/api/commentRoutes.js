@@ -18,7 +18,7 @@ router.get('/:id', async (req, res) => {
         },
       ],
     });
-    console.log("THIS IS COMMENT DATA" + commentData); //used for debugging purposes
+    console.log('THIS IS COMMENT DATA' + commentData); //used for debugging purposes
     const commentInfo = commentData.get({ plain: true });
     console.log(commentInfo);
     res.render('updateComment', {
@@ -31,6 +31,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
+  console.log('INSIDE DELETE COMMENT REQ'); //used for debugging
   try {
     const chosenId = req.params.id;
     const deletedComment = await Comments.destroy({

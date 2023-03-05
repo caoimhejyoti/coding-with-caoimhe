@@ -66,17 +66,19 @@ const updateCommentHandler = async (event) => {
   }
 };
 
-//FIXME: DESCRIPTION: ASYNC FNC to delete a blog post using the specified id.
+//COMPLETE! DESCRIPTION: ASYNC FNC to delete a blog post using the specified id.
 const delButtonHandler = async (event) => {
   try {
+    const post_id = window.location.toString().split('/').pop();
     const id = event.target.getAttribute('data-id');
     console.log(id);
-    const response = await fetch(`/blogposts/${id}`, {
+
+    const response = await fetch(`/api/comments/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
-      document.location.replace('/blogposts');
+      document.location.replace(`/blogposts/${post_id}`);
     }
   } catch (err) {
     alert('Failed to delete Post');
@@ -91,19 +93,22 @@ commentBtn.addEventListener(
   console.log('clicked comment')
 );
 
-// FIXME: this is not currently working
-const updateBtn = document.querySelectorAll('#update-comment');
-updateBtn.addEventListener(
-  'click',
-  updateCommentHandler,
-  console.log('clicked submit to update comment')
-);
+// // FIXME: this is not currently working
+// const updateCommentBtn = document.querySelector('#submit-updated-comment');
+// updateCommentBtn.addEventListener(
+//   'click',
+//   updateCommentHandler,
+//   console.log('clicked submit to update comment')
+// );
 
+// document
+//   .querySelector('#submit-updated-comment')
+//   .addEventListener('click', updateCommentHandler);
 
 // const delCommentBtn = document.querySelectorAll('.comment-delbtn');
 // delCommentBtn.addEventListener('click', delButtonHandler, console.log("clicked delete comment"));
 
-// // FIXME: only copied across
-// document.querySelectorAll('#comment-del').forEach((deleteButton) => {
-//   deleteButton.addEventListener('click', delButtonHandler);
-// });
+// FIXME: only copied across
+document.querySelectorAll('#comment-del').forEach((deleteButton) => {
+  deleteButton.addEventListener('click', delButtonHandler);
+});
