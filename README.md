@@ -24,14 +24,29 @@ https://coding-with-caoimhe.herokuapp.com/
 
 When you first arrive at the app you will see a list of the currently posted Blog posts.
 
+![Homepage screenshot](assets/img/homepage.png)
+
 When you try to look at any of the blog posts in further detail, you will be required to either sign up or log in. 
 
-Once logged in you will be taken to your accouint dashboard. There you can see the posts you have created, create new blog posts or edit any you have already made. 
+![Login/Sign up screenshot](assets/img/login.png)
+
+Once logged in you will be taken to your accouint dashboard. 
+
+![Dasnboard screenshot](assets/img/dashboard.png)
+
+There you can see the posts you have created, create new blog posts or edit any you have already made. 
+
+![Dashboard posts screenshot](assets/img/dashboard.posts.png)
+
+![Update posts screenshot](assets/img/update-post.png)
 
 You can also look at other posts in detail via the homepage. Here you will be able to see any comments made on the blog posts. 
 
-We are currently working on the abilty to update and/or delete comments. Please come back soon to see these developements. 
+![Blog Post focus screenshot](assets/img/blog-posts.png)
 
+You are also able to update and/or delete comments. 
+
+![Update comments screenshot](assets/img/update-comment.png)
 
 ## Future Developments
 This blog is only just starting out. I would love to spend some more time focusing on the UIand UX of the site. The initital focus has been on the back end and while I am happy for the progress, there is always room to grow!
